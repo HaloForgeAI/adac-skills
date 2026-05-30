@@ -444,7 +444,7 @@
       <div class="wrap">
         <div class="section-head">
           <h2 data-i18n="install.title">Install and validate.</h2>
-          <p class="section-copy" data-i18n="install.copy">The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.</p>
+          <p class="section-copy" data-i18n="install.copy">Install the portable ADAC skill with the skills CLI, then validate ADAC plans with the npm command.</p>
         </div>
         <div class="install">
           <div class="terminal">
@@ -458,8 +458,8 @@ npx skills add . --list</pre>
             <pre><span class="dim"># plan validation</span>
 npx adac-skills validate examples/worker-module.adac.md
 
-<span class="dim"># npm publish after login</span>
-npm publish --access public</pre>
+<span class="dim"># package metadata</span>
+npm view adac-skills</pre>
           </div>
         </div>
       </div>
@@ -510,7 +510,7 @@ npm publish --access public</pre>
         "example.three.title": "Incident workflow skill",
         "example.three.text": "ADAC turns one-off incident fixes into reusable skills with evidence collection and approval boundaries.",
         "install.title": "Install and validate.",
-        "install.copy": "The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.",
+        "install.copy": "Install the portable ADAC skill with the skills CLI, then validate ADAC plans with the npm command.",
         "footer": "ADAC Skills · Acceptance-Driven Agentic Coding · Portable skill package for AI-assisted engineering delivery."
       },
       zh: {
@@ -552,7 +552,7 @@ npm publish --access public</pre>
         "example.three.title": "事故处理工作流 Skill",
         "example.three.text": "ADAC 能把一次性的事故修复流程沉淀成带证据收集和审批边界的可复用 Skill。",
         "install.title": "安装与验证。",
-        "install.copy": "这个仓库已经适配 portable `SKILL.md` 安装、Claude Code 插件、Codex 插件和 npm 发布。",
+        "install.copy": "使用 skills CLI 安装 portable ADAC skill，再用 npm 命令校验 ADAC plan。",
         "footer": "ADAC Skills · 验收驱动的智能体协作开发 · 面向 AI 工程交付的 portable skill package。"
       }
     };
