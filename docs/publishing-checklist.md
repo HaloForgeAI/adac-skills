@@ -10,7 +10,7 @@ Minimum viable public release:
 - `docs/brand.md`;
 - `docs/examples.md`;
 - `docs/distribution.md`;
-- GitHub Pages site from `site/`;
+- GitHub Pages site from `docs/index.html`;
 - one square icon, 512 x 512 PNG;
 - one social preview image, 1280 x 640 PNG;
 - npm package metadata;
@@ -79,7 +79,6 @@ Expected command after installation:
 Recommended source:
 
 - branch: `main`;
-- folder: `/site`.
+- folder: `/docs`.
 
-If using GitHub CLI/API, enable Pages after pushing the `site/` folder. If the repo stays private, Pages availability depends on the GitHub plan and organization policy.
-
+If using GitHub CLI/API, enable Pages after pushing the `docs/` folder. If the repo stays private, Pages availability depends on the GitHub plan and organization policy.

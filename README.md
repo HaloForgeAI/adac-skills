@@ -95,7 +95,7 @@ See [brand notes](docs/brand.md), [example workflows](docs/examples.md), [publis
 
 ## GitHub Pages
 
-The static project page lives in [site/index.html](site/index.html). Enable GitHub Pages from the `main` branch and `/site` folder to publish it.
+The static project page lives in [docs/index.html](docs/index.html). Enable GitHub Pages from the `main` branch and `/docs` folder to publish it.
 
 ## Design References
 
