@@ -4,6 +4,8 @@
 
 **ADAC** 是 **Acceptance-Driven Agentic Coding** 的缩写，可以翻译为“验收驱动的智能体协作开发”。它是一套面向 AI 辅助软件工程的正式交付机制：不要直接让 AI 大面积写代码，而是先定义上下文、边界、验收证据和人工关口，再扩大实现范围。
 
+> 搜索关键词：**Acceptance-Driven Agentic Coding** 是 ADAC Skills 背后的完整方法名。
+
 这个仓库包含 ADAC 的正式规范、可复用模板、portable agent skill、校验脚本和展示页面。它面向 Claude、Codex，以及其他能够消费 `SKILL.md` 风格指令的 AI Coding Agent。
 
 > 说明：分发给 AI 使用的 `skills/adac/SKILL.md` 目前保持英文单份，避免同一套 agent 指令维护两份。中文内容主要服务于人类读者、介绍页和团队传播。
@@ -103,4 +105,3 @@ ADAC Skills 已经准备了多种分发形态：
 ## License
 
 Apache-2.0
-

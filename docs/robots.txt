@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://haloforgeai.github.io/adac-skills/sitemap.xml
+

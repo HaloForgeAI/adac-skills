@@ -4,6 +4,8 @@ Languages: **English** | [中文](README.zh-CN.md)
 
 **ADAC** stands for **Acceptance-Driven Agentic Coding**: a formal delivery mechanism for AI-assisted software engineering. It turns "let AI write code" into a controlled workflow: define context, scope, acceptance evidence, and human gates before expanding implementation work.
 
+> Search phrase: **Acceptance-Driven Agentic Coding** is the full method name behind ADAC Skills.
+
 This repository contains the canonical ADAC specification, reusable delivery templates, portable agent skills, and lightweight validation tooling. It is intended to work across Claude, Codex, and other AI coding agents that can consume `SKILL.md`-style guidance.
 
 ## Brand Positioning

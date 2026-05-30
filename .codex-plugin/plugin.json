@@ -9,7 +9,7 @@
   "homepage": "https://github.com/HaloForgeAI/adac-skills",
   "repository": "https://github.com/HaloForgeAI/adac-skills",
   "license": "Apache-2.0",
-  "keywords": ["agentic-coding", "acceptance", "skills", "specification", "engineering-process"],
+  "keywords": ["acceptance-driven-agentic-coding", "agentic-coding", "acceptance", "skills", "specification", "engineering-process"],
   "skills": "./skills/",
   "interface": {
     "displayName": "ADAC Skills",
