@@ -1,23 +1,38 @@
-# Acceptance-Driven Agentic Coding
+# ADAC Skills
 
-Acceptance-Driven Agentic Coding, abbreviated **ADAC**, is a formal delivery mechanism for AI-assisted software engineering. It turns "let AI write code" into a controlled workflow: define context, scope, acceptance evidence, and human gates before expanding implementation work.
+**ADAC** stands for **Acceptance-Driven Agentic Coding**: a formal delivery mechanism for AI-assisted software engineering. It turns "let AI write code" into a controlled workflow: define context, scope, acceptance evidence, and human gates before expanding implementation work.
 
-This repository contains the canonical ADAC specification, reusable delivery templates, agent-facing guidance, and lightweight validation tooling.
+This repository contains the canonical ADAC specification, reusable delivery templates, portable agent skills, and lightweight validation tooling. It is intended to work across Claude, Codex, and other AI coding agents that can consume `SKILL.md`-style guidance.
+
+## Brand Positioning
+
+- **Brand**: ADAC Skills
+- **Full name**: Acceptance-Driven Agentic Coding
+- **Short invocation**: `adac`
+- **Tagline**: Acceptance first. Agents second.
+- **Promise**: make AI coding work reviewable, evidence-backed, and safe to ship.
 
 ## Repository Layout
 
 ```text
-acceptance-driven-agentic-coding/
+adac-skills/
+├── .claude-plugin/plugin.json
+├── .claude-plugin/marketplace.json
 ├── .codex-plugin/plugin.json
+├── bin/adac-validate
+├── docs/
+│   ├── brand.md
+│   └── distribution.md
 ├── README.md
 ├── examples/
 │   └── worker-module.adac.md
+├── package.json
 ├── schemas/
 │   └── adac-plan.schema.json
 ├── scripts/
 │   └── validate_adac_plan.py
 ├── skills/
-│   └── acceptance-driven-agentic-coding/
+│   └── adac/
 │       ├── SKILL.md
 │       ├── agents/openai.yaml
 │       └── references/adac-reference.md
@@ -43,13 +58,32 @@ The mechanism is intentionally stricter than ordinary prompt guidelines and broa
 
 1. Read [ADAC-0001](spec/ADAC-0001.md).
 2. Start each non-trivial AI coding task from [the ADAC plan template](spec/templates/adac-plan.md).
-3. Use [the agent guidance skill](skills/acceptance-driven-agentic-coding/SKILL.md) when asking an AI coding agent to plan or execute work under ADAC.
+3. Use [the ADAC skill](skills/adac/SKILL.md) when asking an AI coding agent to plan or execute work under ADAC.
 4. Record release decisions with [the gate record template](spec/templates/adac-gate-record.md).
 5. Validate a completed plan:
 
 ```bash
 python3 scripts/validate_adac_plan.py examples/worker-module.adac.md
 ```
+
+Or through the npm package entrypoint after publishing/installing:
+
+```bash
+npx adac-skills validate examples/worker-module.adac.md
+```
+
+## Distribution
+
+ADAC Skills is prepared for several distribution paths:
+
+- GitHub repository: `HaloForgeAI/adac-skills`
+- npm package name: `adac-skills`
+- Claude Code plugin manifest: `.claude-plugin/plugin.json`
+- Claude Code marketplace catalog: `.claude-plugin/marketplace.json`
+- Codex plugin manifest: `.codex-plugin/plugin.json`
+- Portable skill folder: `skills/adac/`
+
+See [brand notes](docs/brand.md) and [distribution notes](docs/distribution.md) for naming, publishing, and registration options.
 
 ## Design References
 
@@ -58,4 +92,4 @@ The repo structure borrows from several formal mechanisms:
 - RFC-style normative language and requirement levels: [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119).
 - Proposal lifecycle and template discipline: [PEP 1](https://peps.python.org/pep-0001/) and [PEP 12](https://peps.python.org/pep-0012/).
 - Machine-readable contract thinking: [OpenAPI Specification](https://spec.openapis.org/oas/latest.html).
-- Agent capability packaging: [Model Context Protocol specification](https://modelcontextprotocol.io/specification/) and portable skill/plugin conventions.
+- Agent capability packaging: [Model Context Protocol specification](https://modelcontextprotocol.io/specification/), Claude Skills/Plugins, and portable skill/plugin conventions.

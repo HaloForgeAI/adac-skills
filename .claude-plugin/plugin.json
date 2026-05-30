@@ -9,7 +9,7 @@
   "homepage": "https://github.com/HaloForgeAI/adac-skills",
   "repository": "https://github.com/HaloForgeAI/adac-skills",
   "license": "UNLICENSED",
-  "keywords": ["agentic-coding", "acceptance", "skills", "specification", "engineering-process"],
+  "keywords": ["agentic-coding", "acceptance", "skills", "engineering-process"],
   "skills": "./skills/",
   "interface": {
     "displayName": "ADAC Skills",
@@ -17,12 +17,11 @@
     "longDescription": "A portable skill package for controlling AI-assisted software work through context, spec boundaries, acceptance evidence, and human gates.",
     "developerName": "HaloForgeAI",
     "category": "Productivity",
-    "capabilities": ["Write", "Review", "Planning"],
     "defaultPrompt": [
       "Create an ADAC plan for this coding task.",
       "Review this PR using ADAC gates.",
       "Turn this workflow into a reusable ADAC asset."
-    ],
-    "brandColor": "#6D28D9"
+    ]
   }
 }
+

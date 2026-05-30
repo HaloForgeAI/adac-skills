@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+
+const { spawnSync } = require("node:child_process");
+const path = require("node:path");
+
+const args = process.argv.slice(2);
+const command = args[0] || "help";
+
+function printHelp() {
+  console.log(`ADAC Skills
+
+Usage:
+  adac-skills validate <plan.md> [--allow-placeholders]
+  adac-validate <plan.md> [--allow-placeholders]
+
+Examples:
+  adac-skills validate examples/worker-module.adac.md
+  adac-skills validate spec/templates/adac-plan.md --allow-placeholders
+`);
+}
+
+if (command === "help" || command === "--help" || command === "-h") {
+  printHelp();
+  process.exit(0);
+}
+
+const validateArgs = command === "validate" ? args.slice(1) : args;
+if (command !== "validate" && validateArgs.length === 0) {
+  printHelp();
+  process.exit(1);
+}
+
+const script = path.resolve(__dirname, "../scripts/validate_adac_plan.py");
+const result = spawnSync("python3", [script, ...validateArgs], { stdio: "inherit" });
+
+if (result.error) {
+  console.error(`failed to run python3: ${result.error.message}`);
+  process.exit(1);
+}
+
+process.exit(result.status ?? 1);
+

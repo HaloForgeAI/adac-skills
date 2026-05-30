@@ -1,0 +1,4 @@
+interface:
+  display_name: "ADAC"
+  short_description: "Acceptance-driven AI coding delivery."
+  default_prompt: "Use $adac to turn this engineering task into an acceptance-driven delivery plan."

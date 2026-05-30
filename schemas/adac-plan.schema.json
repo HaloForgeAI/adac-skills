@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/HaloForgeAI/acceptance-driven-agentic-coding/schemas/adac-plan.schema.json",
+  "$id": "https://github.com/HaloForgeAI/adac-skills/schemas/adac-plan.schema.json",
   "title": "ADAC Plan",
   "type": "object",
   "required": ["status", "riskClass", "owner", "target", "context", "spec", "acceptance", "gates"],
@@ -89,4 +89,3 @@
     }
   }
 }
-

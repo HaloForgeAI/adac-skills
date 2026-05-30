@@ -1,5 +1,0 @@
-interface:
-  display_name: "Acceptance-Driven Agentic Coding"
-  short_description: "Turn AI coding work into verifiable engineering delivery."
-  default_prompt: "Use $acceptance-driven-agentic-coding to turn this engineering task into an acceptance-driven delivery plan."
-

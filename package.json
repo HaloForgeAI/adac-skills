@@ -1,0 +1,53 @@
+{
+  "name": "adac-skills",
+  "version": "0.1.0",
+  "description": "Acceptance-Driven Agentic Coding specification, templates, validation tooling, and portable agent skills.",
+  "type": "commonjs",
+  "bin": {
+    "adac-skills": "./bin/adac-validate",
+    "adac-validate": "./bin/adac-validate"
+  },
+  "files": [
+    "bin/",
+    "docs/",
+    "examples/",
+    "schemas/",
+    "scripts/",
+    "skills/",
+    "spec/",
+    ".claude-plugin/",
+    ".codex-plugin/",
+    "README.md"
+  ],
+  "scripts": {
+    "validate": "python3 scripts/validate_adac_plan.py examples/worker-module.adac.md && python3 scripts/validate_adac_plan.py spec/templates/adac-plan.md --allow-placeholders",
+    "packcheck": "npm pack --dry-run"
+  },
+  "keywords": [
+    "agentic-coding",
+    "ai-coding",
+    "skills",
+    "acceptance",
+    "specification",
+    "engineering-process",
+    "claude",
+    "codex"
+  ],
+  "author": "HaloForgeAI",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/HaloForgeAI/adac-skills#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HaloForgeAI/adac-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HaloForgeAI/adac-skills/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
+

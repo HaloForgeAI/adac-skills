@@ -1,9 +1,9 @@
 ---
-name: acceptance-driven-agentic-coding
+name: adac
 description: "Use this skill when planning, executing, reviewing, or formalizing AI-assisted coding work that needs acceptance-first delivery controls: complex module changes, production behavior changes, performance work, concurrency/resource lifecycle work, regression-sensitive refactors, release/rollback decisions, or requests to turn an AI coding method into a reusable spec, skill, or engineering workflow."
 ---
 
-# Acceptance-Driven Agentic Coding
+# ADAC
 
 ## Purpose
 
