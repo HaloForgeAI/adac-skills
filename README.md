@@ -22,6 +22,8 @@ adac-skills/
 ├── bin/adac-validate
 ├── docs/
 │   ├── brand.md
+│   ├── examples.md
+│   ├── publishing-checklist.md
 │   └── distribution.md
 ├── README.md
 ├── examples/
@@ -56,6 +58,12 @@ The mechanism is intentionally stricter than ordinary prompt guidelines and broa
 
 ## Adoption Path
 
+Install with the portable skills CLI:
+
+```bash
+npx skills add HaloForgeAI/adac-skills --skill adac
+```
+
 1. Read [ADAC-0001](spec/ADAC-0001.md).
 2. Start each non-trivial AI coding task from [the ADAC plan template](spec/templates/adac-plan.md).
 3. Use [the ADAC skill](skills/adac/SKILL.md) when asking an AI coding agent to plan or execute work under ADAC.
@@ -83,7 +91,11 @@ ADAC Skills is prepared for several distribution paths:
 - Codex plugin manifest: `.codex-plugin/plugin.json`
 - Portable skill folder: `skills/adac/`
 
-See [brand notes](docs/brand.md) and [distribution notes](docs/distribution.md) for naming, publishing, and registration options.
+See [brand notes](docs/brand.md), [example workflows](docs/examples.md), [publishing checklist](docs/publishing-checklist.md), and [distribution notes](docs/distribution.md) for naming, usage, publishing, and registration options.
+
+## GitHub Pages
+
+The static project page lives in [site/index.html](site/index.html). Enable GitHub Pages from the `main` branch and `/site` folder to publish it.
 
 ## Design References
 

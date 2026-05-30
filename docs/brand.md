@@ -54,6 +54,20 @@ Recommended visual direction if the project gets a logo or docs site:
 - avoid cartoon robot imagery and hype-heavy gradients;
 - use `ADAC` as the first-viewport signal; expand the full name below it.
 
+## Upload Asset Checklist
+
+For a polished public launch, prepare:
+
+- `icon-512.png`: square icon for marketplaces and package cards;
+- `social-preview.png`: 1280 x 640 GitHub/social preview;
+- `hero.png` or `hero.svg`: site hero visual showing Context -> Spec -> Evals -> Gates;
+- `demo-before-after.png`: simple visual of vague task to ADAC acceptance matrix;
+- one short demo GIF/video for README or docs site;
+- consistent display name: `ADAC Skills`;
+- consistent package names: `adac-skills` and optional `@haloforgeai/adac-skills`.
+
+The icon should be readable at small sizes. A good first logo direction is a four-cell matrix with a check gate, not a robot.
+
 ## Naming Rules
 
 - Use `ADAC Skills` for the package/product.
@@ -61,4 +75,3 @@ Recommended visual direction if the project gets a logo or docs site:
 - Use `Acceptance-Driven Agentic Coding` when defining the method formally.
 - Use `adac-skills` for repositories, npm packages, and plugin identifiers.
 - Use `adac` for the actual skill folder and direct invocation.
-

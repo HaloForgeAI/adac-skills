@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADAC Skills</title>
+  <meta name="description" content="Acceptance-first delivery for AI coding agents.">
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #5b6472;
+      --line: #d9dee7;
+      --paper: #fbfcfe;
+      --panel: #ffffff;
+      --accent: #4f46e5;
+      --accent-soft: #eef2ff;
+      --green: #138a54;
+      --green-soft: #e9f8ef;
+      --amber: #a16207;
+      --amber-soft: #fff7db;
+      --shadow: 0 18px 60px rgba(17, 24, 39, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 252, 254, 0.92);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(16px);
+      z-index: 10;
+    }
+
+    nav {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 6px 18px rgba(17, 24, 39, 0.08);
+    }
+
+    .mark span {
+      border-radius: 3px;
+      background: var(--accent);
+    }
+
+    .mark span:nth-child(2) {
+      background: var(--green);
+    }
+
+    .mark span:nth-child(3) {
+      background: var(--amber);
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 86px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin: 26px 0 0;
+      max-width: 660px;
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 700;
+      box-shadow: 0 8px 26px rgba(17, 24, 39, 0.06);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .terminal {
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 14px;
+      overflow: hidden;
+    }
+
+    .terminal .dim {
+      color: #9ca3af;
+    }
+
+    .flow {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      align-items: start;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .flow-key {
+      color: #c4b5fd;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 56px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 36px;
+      line-height: 1.12;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      box-shadow: 0 10px 34px rgba(17, 24, 39, 0.05);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .examples .card:nth-child(2) .pill {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .examples .card:nth-child(3) .pill {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .install {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 38px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .links {
+        display: none;
+      }
+
+      .hero-grid,
+      .install {
+        grid-template-columns: 1fr;
+      }
+
+      .grid,
+      .examples {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      h1 {
+        font-size: 54px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="wrap">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <span>ADAC Skills</span>
+      </div>
+      <div class="links">
+        <a href="#mechanism">Mechanism</a>
+        <a href="#examples">Examples</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/HaloForgeAI/adac-skills">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Acceptance-Driven Agentic Coding</div>
+          <h1>Acceptance first. Agents second.</h1>
+          <p class="sub">ADAC Skills turns AI coding from plausible patch generation into evidence-backed engineering delivery. Define context, boundaries, acceptance checks, and human gates before implementation expands.</p>
+          <div class="cta">
+            <a class="btn primary" href="#install">Install ADAC</a>
+            <a class="btn" href="https://github.com/HaloForgeAI/adac-skills/blob/main/spec/ADAC-0001.md">Read the spec</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="ADAC workflow">
+          <div><span class="dim">$</span> npx skills add HaloForgeAI/adac-skills --skill adac</div>
+          <div class="flow">
+            <div class="flow-row"><div class="flow-key">Context</div><div>source paths, business rules, incidents, logs, tests</div></div>
+            <div class="flow-row"><div class="flow-key">Spec</div><div>target behavior, non-goals, stable interfaces, fallback</div></div>
+            <div class="flow-row"><div class="flow-key">Evals</div><div>behavior, regression, performance, lifecycle evidence</div></div>
+            <div class="flow-row"><div class="flow-key">Gates</div><div>architecture, concurrency, security, rollout decisions</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mechanism">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>A delivery contract for AI coding agents.</h2>
+          <p class="section-copy">ADAC is broader than TDD and stricter than prompt guidelines. It asks agents to produce reviewable acceptance evidence, not just code that compiles.</p>
+        </div>
+        <div class="grid">
+          <div class="card"><div class="pill">01</div><h3>Context</h3><p>Make the system, business rules, history, and known risks available before generation.</p></div>
+          <div class="card"><div class="pill">02</div><h3>Spec</h3><p>Define target behavior, non-goals, boundaries, and fallback before implementation.</p></div>
+          <div class="card"><div class="pill">03</div><h3>Evals</h3><p>Turn real risks into behavior, regression, performance, lifecycle, and observability checks.</p></div>
+          <div class="card"><div class="pill">04</div><h3>Gates</h3><p>Reserve architecture, concurrency, security, release, and residual-risk calls for people.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Where ADAC helps.</h2>
+          <p class="section-copy">Use it when agent output is fast but correctness depends on engineering judgment, historical regressions, or release safety.</p>
+        </div>
+        <div class="examples">
+          <div class="card"><div class="pill">Critical Path</div><h3>Async resource loading</h3><p>Before code, ADAC asks for lifecycle checks, same-scene timing, logs, telemetry, and concurrency gates.</p></div>
+          <div class="card"><div class="pill">High Impact</div><h3>Checkout coupon path</h3><p>ADAC classifies payment changes upward, then requires pricing invariants, audit evidence, and security/product gates.</p></div>
+          <div class="card"><div class="pill">Team Asset</div><h3>Incident workflow skill</h3><p>ADAC turns one-off incident fixes into reusable skills with evidence collection and approval boundaries.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Install and validate.</h2>
+          <p class="section-copy">The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.</p>
+        </div>
+        <div class="install">
+          <div class="terminal">
+            <pre><span class="dim"># portable skills CLI</span>
+npx skills add HaloForgeAI/adac-skills --skill adac
+
+<span class="dim"># local validation</span>
+npx skills add . --list</pre>
+          </div>
+          <div class="terminal">
+            <pre><span class="dim"># plan validation</span>
+npx adac-skills validate examples/worker-module.adac.md
+
+<span class="dim"># npm publish after login</span>
+npm publish --access public</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">ADAC Skills · Acceptance-Driven Agentic Coding · Portable skill package for AI-assisted engineering delivery.</div>
+  </footer>
+</body>
+</html>
+
