@@ -1,7 +1,7 @@
 {
   "name": "acceptance-driven-agentic-coding",
   "version": "0.1.0",
-  "description": "Formal Acceptance-Driven Agentic Coding specification and Codex skill for verifiable AI-assisted engineering delivery.",
+  "description": "Formal Acceptance-Driven Agentic Coding specification, templates, validation tooling, and portable agent guidance for verifiable AI-assisted engineering delivery.",
   "author": {
     "name": "HaloForgeAI",
     "url": "https://github.com/HaloForgeAI"
@@ -14,7 +14,7 @@
   "interface": {
     "displayName": "Acceptance-Driven Agentic Coding",
     "shortDescription": "Verifiable AI coding delivery mechanism.",
-    "longDescription": "A formal specification, templates, validation tooling, and Codex skill for controlling AI-assisted software work through context, spec boundaries, acceptance evidence, and human gates.",
+    "longDescription": "A formal specification, templates, validation tooling, and agent guidance for controlling AI-assisted software work through context, spec boundaries, acceptance evidence, and human gates.",
     "developerName": "HaloForgeAI",
     "category": "Productivity",
     "capabilities": ["Write", "Review", "Planning"],
@@ -26,4 +26,3 @@
     "brandColor": "#6D28D9"
   }
 }
-
