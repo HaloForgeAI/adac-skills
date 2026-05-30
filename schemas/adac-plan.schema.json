@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/HaloForgeAI/acceptance-driven-agentic-coding/schemas/adac-plan.schema.json",
+  "title": "ADAC Plan",
+  "type": "object",
+  "required": ["status", "riskClass", "owner", "target", "context", "spec", "acceptance", "gates"],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["draft", "active", "blocked", "accepted", "rejected"]
+    },
+    "riskClass": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D"]
+    },
+    "owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context": {
+      "type": "object",
+      "required": ["verifiedFacts", "assumptions", "knownUnknowns"],
+      "additionalProperties": false,
+      "properties": {
+        "verifiedFacts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "assumptions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "knownUnknowns": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "spec": {
+      "type": "object",
+      "required": ["targetBehavior", "nonGoals", "stableInterfaces", "rollback"],
+      "additionalProperties": false,
+      "properties": {
+        "targetBehavior": { "type": "string", "minLength": 1 },
+        "nonGoals": { "type": "array", "items": { "type": "string" } },
+        "stableInterfaces": { "type": "array", "items": { "type": "string" } },
+        "rollback": { "type": "string" }
+      }
+    },
+    "acceptance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "risk", "criterion", "method", "evidence", "owner"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^AC-[0-9]{2,}$" },
+          "risk": { "type": "string", "minLength": 1 },
+          "criterion": { "type": "string", "minLength": 1 },
+          "method": { "type": "string", "minLength": 1 },
+          "evidence": { "type": "string", "minLength": 1 },
+          "owner": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "required", "owner", "decision"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "required": { "type": "boolean" },
+          "owner": { "type": "string", "minLength": 1 },
+          "decision": {
+            "type": "string",
+            "enum": ["pending", "approved", "approved-with-risk", "blocked", "not-applicable"]
+          }
+        }
+      }
+    }
+  }
+}
+

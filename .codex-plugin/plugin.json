@@ -1,0 +1,29 @@
+{
+  "name": "acceptance-driven-agentic-coding",
+  "version": "0.1.0",
+  "description": "Formal Acceptance-Driven Agentic Coding specification and Codex skill for verifiable AI-assisted engineering delivery.",
+  "author": {
+    "name": "HaloForgeAI",
+    "url": "https://github.com/HaloForgeAI"
+  },
+  "homepage": "https://github.com/HaloForgeAI/acceptance-driven-agentic-coding",
+  "repository": "https://github.com/HaloForgeAI/acceptance-driven-agentic-coding",
+  "license": "UNLICENSED",
+  "keywords": ["agentic-coding", "acceptance", "skills", "specification", "engineering-process"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Acceptance-Driven Agentic Coding",
+    "shortDescription": "Verifiable AI coding delivery mechanism.",
+    "longDescription": "A formal specification, templates, validation tooling, and Codex skill for controlling AI-assisted software work through context, spec boundaries, acceptance evidence, and human gates.",
+    "developerName": "HaloForgeAI",
+    "category": "Productivity",
+    "capabilities": ["Write", "Review", "Planning"],
+    "defaultPrompt": [
+      "Create an ADAC plan for this coding task.",
+      "Review this PR using ADAC gates.",
+      "Turn this AI coding workflow into a reusable ADAC skill."
+    ],
+    "brandColor": "#6D28D9"
+  }
+}
+
