@@ -103,6 +103,33 @@
       gap: 20px;
       font-size: 14px;
       color: var(--muted);
+      align-items: center;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px;
+      background: var(--panel);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
     }
 
     .hero {
@@ -301,6 +328,11 @@
 
     @media (max-width: 860px) {
       .links {
+        gap: 10px;
+        font-size: 13px;
+      }
+
+      .links a:not(:last-child) {
         display: none;
       }
 
@@ -332,10 +364,14 @@
         <span>ADAC Skills</span>
       </div>
       <div class="links">
-        <a href="#mechanism">Mechanism</a>
-        <a href="#examples">Examples</a>
-        <a href="#install">Install</a>
+        <a href="#mechanism" data-i18n="nav.mechanism">Mechanism</a>
+        <a href="#examples" data-i18n="nav.examples">Examples</a>
+        <a href="#install" data-i18n="nav.install">Install</a>
         <a href="https://github.com/HaloForgeAI/adac-skills">GitHub</a>
+        <span class="lang-switch" aria-label="Language switcher">
+          <button class="lang-btn active" type="button" data-lang="en">EN</button>
+          <button class="lang-btn" type="button" data-lang="zh">中文</button>
+        </span>
       </div>
     </nav>
   </header>
@@ -344,21 +380,21 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Acceptance-Driven Agentic Coding</div>
-          <h1>Acceptance first. Agents second.</h1>
-          <p class="sub">ADAC Skills turns AI coding from plausible patch generation into evidence-backed engineering delivery. Define context, boundaries, acceptance checks, and human gates before implementation expands.</p>
+          <div class="eyebrow" data-i18n="hero.eyebrow">Acceptance-Driven Agentic Coding</div>
+          <h1 data-i18n="hero.title">Acceptance first. Agents second.</h1>
+          <p class="sub" data-i18n="hero.sub">ADAC Skills turns AI coding from plausible patch generation into evidence-backed engineering delivery. Define context, boundaries, acceptance checks, and human gates before implementation expands.</p>
           <div class="cta">
-            <a class="btn primary" href="#install">Install ADAC</a>
-            <a class="btn" href="https://github.com/HaloForgeAI/adac-skills/blob/main/spec/ADAC-0001.md">Read the spec</a>
+            <a class="btn primary" href="#install" data-i18n="hero.install">Install ADAC</a>
+            <a class="btn" href="https://github.com/HaloForgeAI/adac-skills/blob/main/spec/ADAC-0001.md" data-i18n="hero.spec">Read the spec</a>
           </div>
         </div>
         <div class="terminal" aria-label="ADAC workflow">
           <div><span class="dim">$</span> npx skills add HaloForgeAI/adac-skills --skill adac</div>
           <div class="flow">
-            <div class="flow-row"><div class="flow-key">Context</div><div>source paths, business rules, incidents, logs, tests</div></div>
-            <div class="flow-row"><div class="flow-key">Spec</div><div>target behavior, non-goals, stable interfaces, fallback</div></div>
-            <div class="flow-row"><div class="flow-key">Evals</div><div>behavior, regression, performance, lifecycle evidence</div></div>
-            <div class="flow-row"><div class="flow-key">Gates</div><div>architecture, concurrency, security, rollout decisions</div></div>
+            <div class="flow-row"><div class="flow-key" data-i18n="flow.context.key">Context</div><div data-i18n="flow.context.text">source paths, business rules, incidents, logs, tests</div></div>
+            <div class="flow-row"><div class="flow-key" data-i18n="flow.spec.key">Spec</div><div data-i18n="flow.spec.text">target behavior, non-goals, stable interfaces, fallback</div></div>
+            <div class="flow-row"><div class="flow-key" data-i18n="flow.evals.key">Evals</div><div data-i18n="flow.evals.text">behavior, regression, performance, lifecycle evidence</div></div>
+            <div class="flow-row"><div class="flow-key" data-i18n="flow.gates.key">Gates</div><div data-i18n="flow.gates.text">architecture, concurrency, security, rollout decisions</div></div>
           </div>
         </div>
       </div>
@@ -367,14 +403,14 @@
     <section id="mechanism">
       <div class="wrap">
         <div class="section-head">
-          <h2>A delivery contract for AI coding agents.</h2>
-          <p class="section-copy">ADAC is broader than TDD and stricter than prompt guidelines. It asks agents to produce reviewable acceptance evidence, not just code that compiles.</p>
+          <h2 data-i18n="mechanism.title">A delivery contract for AI coding agents.</h2>
+          <p class="section-copy" data-i18n="mechanism.copy">ADAC is broader than TDD and stricter than prompt guidelines. It asks agents to produce reviewable acceptance evidence, not just code that compiles.</p>
         </div>
         <div class="grid">
-          <div class="card"><div class="pill">01</div><h3>Context</h3><p>Make the system, business rules, history, and known risks available before generation.</p></div>
-          <div class="card"><div class="pill">02</div><h3>Spec</h3><p>Define target behavior, non-goals, boundaries, and fallback before implementation.</p></div>
-          <div class="card"><div class="pill">03</div><h3>Evals</h3><p>Turn real risks into behavior, regression, performance, lifecycle, and observability checks.</p></div>
-          <div class="card"><div class="pill">04</div><h3>Gates</h3><p>Reserve architecture, concurrency, security, release, and residual-risk calls for people.</p></div>
+          <div class="card"><div class="pill">01</div><h3 data-i18n="card.context.title">Context</h3><p data-i18n="card.context.text">Make the system, business rules, history, and known risks available before generation.</p></div>
+          <div class="card"><div class="pill">02</div><h3 data-i18n="card.spec.title">Spec</h3><p data-i18n="card.spec.text">Define target behavior, non-goals, boundaries, and fallback before implementation.</p></div>
+          <div class="card"><div class="pill">03</div><h3 data-i18n="card.evals.title">Evals</h3><p data-i18n="card.evals.text">Turn real risks into behavior, regression, performance, lifecycle, and observability checks.</p></div>
+          <div class="card"><div class="pill">04</div><h3 data-i18n="card.gates.title">Gates</h3><p data-i18n="card.gates.text">Reserve architecture, concurrency, security, release, and residual-risk calls for people.</p></div>
         </div>
       </div>
     </section>
@@ -382,13 +418,13 @@
     <section id="examples">
       <div class="wrap">
         <div class="section-head">
-          <h2>Where ADAC helps.</h2>
-          <p class="section-copy">Use it when agent output is fast but correctness depends on engineering judgment, historical regressions, or release safety.</p>
+          <h2 data-i18n="examples.title">Where ADAC helps.</h2>
+          <p class="section-copy" data-i18n="examples.copy">Use it when agent output is fast but correctness depends on engineering judgment, historical regressions, or release safety.</p>
         </div>
         <div class="examples">
-          <div class="card"><div class="pill">Critical Path</div><h3>Async resource loading</h3><p>Before code, ADAC asks for lifecycle checks, same-scene timing, logs, telemetry, and concurrency gates.</p></div>
-          <div class="card"><div class="pill">High Impact</div><h3>Checkout coupon path</h3><p>ADAC classifies payment changes upward, then requires pricing invariants, audit evidence, and security/product gates.</p></div>
-          <div class="card"><div class="pill">Team Asset</div><h3>Incident workflow skill</h3><p>ADAC turns one-off incident fixes into reusable skills with evidence collection and approval boundaries.</p></div>
+          <div class="card"><div class="pill" data-i18n="example.one.pill">Critical Path</div><h3 data-i18n="example.one.title">Async resource loading</h3><p data-i18n="example.one.text">Before code, ADAC asks for lifecycle checks, same-scene timing, logs, telemetry, and concurrency gates.</p></div>
+          <div class="card"><div class="pill" data-i18n="example.two.pill">High Impact</div><h3 data-i18n="example.two.title">Checkout coupon path</h3><p data-i18n="example.two.text">ADAC classifies payment changes upward, then requires pricing invariants, audit evidence, and security/product gates.</p></div>
+          <div class="card"><div class="pill" data-i18n="example.three.pill">Team Asset</div><h3 data-i18n="example.three.title">Incident workflow skill</h3><p data-i18n="example.three.text">ADAC turns one-off incident fixes into reusable skills with evidence collection and approval boundaries.</p></div>
         </div>
       </div>
     </section>
@@ -396,8 +432,8 @@
     <section id="install">
       <div class="wrap">
         <div class="section-head">
-          <h2>Install and validate.</h2>
-          <p class="section-copy">The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.</p>
+          <h2 data-i18n="install.title">Install and validate.</h2>
+          <p class="section-copy" data-i18n="install.copy">The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.</p>
         </div>
         <div class="install">
           <div class="terminal">
@@ -420,8 +456,116 @@ npm publish --access public</pre>
   </main>
 
   <footer>
-    <div class="wrap">ADAC Skills · Acceptance-Driven Agentic Coding · Portable skill package for AI-assisted engineering delivery.</div>
+    <div class="wrap" data-i18n="footer">ADAC Skills · Acceptance-Driven Agentic Coding · Portable skill package for AI-assisted engineering delivery.</div>
   </footer>
+  <script>
+    const messages = {
+      en: {
+        "nav.mechanism": "Mechanism",
+        "nav.examples": "Examples",
+        "nav.install": "Install",
+        "hero.eyebrow": "Acceptance-Driven Agentic Coding",
+        "hero.title": "Acceptance first. Agents second.",
+        "hero.sub": "ADAC Skills turns AI coding from plausible patch generation into evidence-backed engineering delivery. Define context, boundaries, acceptance checks, and human gates before implementation expands.",
+        "hero.install": "Install ADAC",
+        "hero.spec": "Read the spec",
+        "flow.context.key": "Context",
+        "flow.context.text": "source paths, business rules, incidents, logs, tests",
+        "flow.spec.key": "Spec",
+        "flow.spec.text": "target behavior, non-goals, stable interfaces, fallback",
+        "flow.evals.key": "Evals",
+        "flow.evals.text": "behavior, regression, performance, lifecycle evidence",
+        "flow.gates.key": "Gates",
+        "flow.gates.text": "architecture, concurrency, security, rollout decisions",
+        "mechanism.title": "A delivery contract for AI coding agents.",
+        "mechanism.copy": "ADAC is broader than TDD and stricter than prompt guidelines. It asks agents to produce reviewable acceptance evidence, not just code that compiles.",
+        "card.context.title": "Context",
+        "card.context.text": "Make the system, business rules, history, and known risks available before generation.",
+        "card.spec.title": "Spec",
+        "card.spec.text": "Define target behavior, non-goals, boundaries, and fallback before implementation.",
+        "card.evals.title": "Evals",
+        "card.evals.text": "Turn real risks into behavior, regression, performance, lifecycle, and observability checks.",
+        "card.gates.title": "Gates",
+        "card.gates.text": "Reserve architecture, concurrency, security, release, and residual-risk calls for people.",
+        "examples.title": "Where ADAC helps.",
+        "examples.copy": "Use it when agent output is fast but correctness depends on engineering judgment, historical regressions, or release safety.",
+        "example.one.pill": "Critical Path",
+        "example.one.title": "Async resource loading",
+        "example.one.text": "Before code, ADAC asks for lifecycle checks, same-scene timing, logs, telemetry, and concurrency gates.",
+        "example.two.pill": "High Impact",
+        "example.two.title": "Checkout coupon path",
+        "example.two.text": "ADAC classifies payment changes upward, then requires pricing invariants, audit evidence, and security/product gates.",
+        "example.three.pill": "Team Asset",
+        "example.three.title": "Incident workflow skill",
+        "example.three.text": "ADAC turns one-off incident fixes into reusable skills with evidence collection and approval boundaries.",
+        "install.title": "Install and validate.",
+        "install.copy": "The repository is shaped for portable `SKILL.md` installation, Claude Code plugin packaging, Codex plugin packaging, and npm publishing.",
+        "footer": "ADAC Skills · Acceptance-Driven Agentic Coding · Portable skill package for AI-assisted engineering delivery."
+      },
+      zh: {
+        "nav.mechanism": "机制",
+        "nav.examples": "示例",
+        "nav.install": "安装",
+        "hero.eyebrow": "验收驱动的智能体协作开发",
+        "hero.title": "先验收，再让 Agent 动手。",
+        "hero.sub": "ADAC Skills 把 AI 写代码从“看起来像对的补丁”变成有证据、可审查、可上线判断的工程交付：先定义上下文、边界、验收检查和人工关口，再扩大实现面积。",
+        "hero.install": "安装 ADAC",
+        "hero.spec": "查看规范",
+        "flow.context.key": "Context",
+        "flow.context.text": "源码路径、业务规则、历史问题、日志、测试入口",
+        "flow.spec.key": "Spec",
+        "flow.spec.text": "目标行为、非目标、稳定接口、回退路径",
+        "flow.evals.key": "Evals",
+        "flow.evals.text": "行为、回归、性能、生命周期证据",
+        "flow.gates.key": "Gates",
+        "flow.gates.text": "架构、并发、安全、发布判断",
+        "mechanism.title": "给 AI Coding Agent 的工程交付契约。",
+        "mechanism.copy": "ADAC 比 TDD 更宽，也比普通提示词约束更严格。它要求 Agent 先产出可审查的验收证据，而不只是写出能编译的代码。",
+        "card.context.title": "Context",
+        "card.context.text": "在生成代码前，让 Agent 先拿到系统、业务规则、历史问题和已知风险。",
+        "card.spec.title": "Spec",
+        "card.spec.text": "在实现前写清目标行为、非目标、边界和回退路径。",
+        "card.evals.title": "Evals",
+        "card.evals.text": "把真实风险转成行为、回归、性能、生命周期和可观测检查。",
+        "card.gates.title": "Gates",
+        "card.gates.text": "架构、并发、安全、发布和残余风险判断由人来收口。",
+        "examples.title": "ADAC 适合用在哪里。",
+        "examples.copy": "当 Agent 产出很快，但正确性取决于工程判断、历史回归或发布安全时，就该使用 ADAC。",
+        "example.one.pill": "关键路径",
+        "example.one.title": "异步资源加载",
+        "example.one.text": "写代码前，ADAC 会要求生命周期检查、同场景计时、日志、Telemetry 和并发关口。",
+        "example.two.pill": "高影响",
+        "example.two.title": "结账优惠券路径",
+        "example.two.text": "ADAC 会把支付相关改动上调风险等级，并要求价格不变量、审计证据和安全/产品关口。",
+        "example.three.pill": "团队资产",
+        "example.three.title": "事故处理工作流 Skill",
+        "example.three.text": "ADAC 能把一次性的事故修复流程沉淀成带证据收集和审批边界的可复用 Skill。",
+        "install.title": "安装与验证。",
+        "install.copy": "这个仓库已经适配 portable `SKILL.md` 安装、Claude Code 插件、Codex 插件和 npm 发布。",
+        "footer": "ADAC Skills · 验收驱动的智能体协作开发 · 面向 AI 工程交付的 portable skill package。"
+      }
+    };
+
+    function setLanguage(lang) {
+      const dict = messages[lang] || messages.en;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key]) el.textContent = dict[key];
+      });
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+      });
+      localStorage.setItem("adac-lang", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.getAttribute("data-lang")));
+    });
+
+    const storedLang = localStorage.getItem("adac-lang");
+    const browserLang = (navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en";
+    setLanguage(storedLang || browserLang);
+  </script>
 </body>
 </html>
-
