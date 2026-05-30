@@ -1,6 +1,6 @@
 {
   "name": "adac-skills",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Acceptance-Driven Agentic Coding specification, templates, validation tooling, and portable agent skills.",
   "author": {
     "name": "HaloForgeAI",
@@ -8,7 +8,7 @@
   },
   "homepage": "https://github.com/HaloForgeAI/adac-skills",
   "repository": "https://github.com/HaloForgeAI/adac-skills",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "keywords": ["agentic-coding", "acceptance", "skills", "specification", "engineering-process"],
   "skills": "./skills/",
   "interface": {
