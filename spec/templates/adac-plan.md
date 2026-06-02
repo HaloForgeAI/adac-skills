@@ -43,7 +43,15 @@ Target repo/module: <path or system>
 | AC-02 | regression | <invariant that must not regress> | <test/log/manual check> | <artifact/result> | <agent/human> |
 | AC-03 | observability | <diagnosis requirement> | <log/telemetry/dump check> | <artifact/result> | <agent/human> |
 
-## 5. Agent Work Plan
+## 5. User Verification Scenarios
+
+Use this section when behavior is user-facing or business-visible. If it is not applicable, state why.
+
+| ID | Linked AC | Persona | Preconditions | Steps | Expected Result | Evidence | Owner/Gate |
+|---|---|---|---|---|---|---|---|
+| UV-01 | AC-01 | <user/reviewer/QA/product owner> | <environment, fixture, account, test data> | <step-by-step behavior check> | <visible result the user should observe> | <screenshot/video/log/metric/observation> | <agent/human> |
+
+## 6. Agent Work Plan
 
 1. Context reading:
 2. Exploration:
@@ -51,7 +59,7 @@ Target repo/module: <path or system>
 4. Verification steps:
 5. Documentation or assetization:
 
-## 6. Human Gates
+## 7. Human Gates
 
 | Gate | Required? | Decision owner | Decision |
 |---|---|---|---|
@@ -60,21 +68,20 @@ Target repo/module: <path or system>
 | Concurrency/data/resource risk | <yes/no> | <owner> | pending |
 | Release/rollback | <yes/no> | <owner> | pending |
 
-## 7. Evidence Log
+## 8. Evidence Log
 
 | Time | Check | Result | Artifact |
 |---|---|---|---|
 | <timestamp> | <command/scenario/review> | <pass/fail/blocked/skipped> | <path/link/log> |
 
-## 8. Residual Risk
+## 9. Residual Risk
 
 - Remaining risk:
 - Why acceptable or blocked:
 - Follow-up owner:
 
-## 9. Reusable Assets
+## 10. Reusable Assets
 
 - Context to preserve:
 - Tests/checks to preserve:
 - Scripts/tools/docs/skills to update:
-

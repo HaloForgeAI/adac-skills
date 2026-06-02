@@ -8,12 +8,13 @@ Use this checklist before and during AI-assisted implementation.
 2. What source paths, docs, logs, metrics, and prior incidents have been verified?
 3. What must not change?
 4. What acceptance evidence will prove the behavior is acceptable?
-5. What historical regression must stay fixed?
-6. What pressure, performance, or lifecycle scenario matters?
-7. What logs, telemetry, profile, trace, or dump entry will diagnose failure?
-8. What rollback or fallback exists?
-9. Which decisions require human approval?
-10. What reusable asset should survive this task?
+5. What practical user verification scenario can the user or reviewer run?
+6. What historical regression must stay fixed?
+7. What pressure, performance, or lifecycle scenario matters?
+8. What logs, telemetry, profile, trace, or dump entry will diagnose failure?
+9. What rollback or fallback exists?
+10. Which decisions require human approval?
+11. What reusable asset should survive this task?
 
 ## Recommended Acceptance Categories
 
@@ -27,11 +28,18 @@ Use this checklist before and during AI-assisted implementation.
 | rollout | release safety | feature switch, fallback test, canary plan |
 | security | auth, privacy, secrets, trust boundaries | security review, threat note, audit log |
 
+## User Verification Scenarios
+
+Use these when the change has user-facing or business-visible behavior. A good scenario includes `UV-*` ID, linked `AC-*` item, persona, preconditions, concrete steps, expected visible result, evidence to capture, and owner/gate.
+
+Prefer scenarios that a real user, QA owner, reviewer, or product owner can run without reading implementation details.
+
 ## Phrasing Guide
 
 Prefer:
 
 - "accepted when AC-01 through AC-06 have evidence and G-02 is approved";
+- "UV-01: as an admin reviewer, select three eligible rows, click Archive, confirm, and verify only those rows move to Archived with an audit entry";
 - "same scenario, same machine tier, same measurement method";
 - "agent prepares evidence; human owner approves the gate";
 - "test coverage is supporting evidence, not the acceptance claim";
@@ -45,4 +53,3 @@ Avoid:
 - "make it better";
 - "refactor while we are here";
 - "fallback removed because new path works."
-

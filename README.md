@@ -58,6 +58,8 @@ ADAC is built on four required controls:
 3. **Evals**: turn real user and engineering risks into executable acceptance checks.
 4. **Gates**: reserve architecture, concurrency, security, release, and rollback decisions for human review.
 
+For user-facing or business-visible work, ADAC also asks for **User Verification Scenarios**: concrete behavior checks a user, reviewer, QA owner, or product owner can run, with preconditions, steps, expected visible results, and evidence to capture.
+
 The mechanism is intentionally stricter than ordinary prompt guidelines and broader than TDD. It prioritizes behavior tests, regression checks, pressure/performance evidence, observability, and rollout safety over coverage theater.
 
 ## Adoption Path
@@ -70,9 +72,10 @@ npx skills add HaloForgeAI/adac-skills --skill adac
 
 1. Read [ADAC-0001](spec/ADAC-0001.md).
 2. Start each non-trivial AI coding task from [the ADAC plan template](spec/templates/adac-plan.md).
-3. Use [the ADAC skill](skills/adac/SKILL.md) when asking an AI coding agent to plan or execute work under ADAC.
-4. Record release decisions with [the gate record template](spec/templates/adac-gate-record.md).
-5. Validate a completed plan:
+3. Include user verification scenarios when behavior can be checked by a user or reviewer.
+4. Use [the ADAC skill](skills/adac/SKILL.md) when asking an AI coding agent to plan or execute work under ADAC.
+5. Record release decisions with [the gate record template](spec/templates/adac-gate-record.md).
+6. Validate a completed plan:
 
 ```bash
 python3 scripts/validate_adac_plan.py examples/worker-module.adac.md

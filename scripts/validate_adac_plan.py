@@ -14,11 +14,12 @@ REQUIRED_HEADINGS = [
     "## 2. Context Pack",
     "## 3. Spec Boundary",
     "## 4. Acceptance Matrix",
-    "## 5. Agent Work Plan",
-    "## 6. Human Gates",
-    "## 7. Evidence Log",
-    "## 8. Residual Risk",
-    "## 9. Reusable Assets",
+    "## 5. User Verification Scenarios",
+    "## 6. Agent Work Plan",
+    "## 7. Human Gates",
+    "## 8. Evidence Log",
+    "## 9. Residual Risk",
+    "## 10. Reusable Assets",
 ]
 
 REQUIRED_ACCEPTANCE_RISKS = {
@@ -62,13 +63,42 @@ def validate(path: Path, allow_placeholders: bool) -> list[str]:
         if not any(alias.lower() in lower_matrix for alias in aliases):
             errors.append(f"acceptance matrix must include {risk_name} risk coverage")
 
-    gates = section(text, "## 6. Human Gates").lower()
+    user_scenarios = section(text, "## 5. User Verification Scenarios")
+    user_scenario_rows = [
+        line
+        for line in user_scenarios.splitlines()
+        if re.match(r"^\|\s*UV-[0-9]{2,}\s*\|", line)
+    ]
+    lower_user_scenarios = user_scenarios.lower()
+    if not user_scenario_rows and not any(
+        marker in lower_user_scenarios
+        for marker in ("not applicable", "not-applicable", "n/a", "不适用")
+    ):
+        errors.append("user verification scenarios must include at least one UV-* row or a not-applicable reason")
+
+    gates = section(text, "## 7. Human Gates").lower()
     if "pending" not in gates and "approved" not in gates and "blocked" not in gates:
         errors.append("human gates must contain a recognizable decision state")
 
-    evidence = section(text, "## 7. Evidence Log")
+    evidence = section(text, "## 8. Evidence Log")
     if not allow_placeholders and "skipped" in evidence.lower() and "why" not in evidence.lower():
         errors.append("skipped evidence should include why it was skipped")
+
+    risk_match = re.search(r"^Risk class:\s*([ABCD])\b", text, flags=re.MULTILINE)
+    if risk_match and risk_match.group(1) in {"C", "D"}:
+        high_risk_record = "\n".join(
+            [
+                section(text, "## 3. Spec Boundary"),
+                section(text, "## 6. Agent Work Plan"),
+                section(text, "## 7. Human Gates"),
+                section(text, "## 8. Evidence Log"),
+                section(text, "## 9. Residual Risk"),
+            ]
+        ).lower()
+        if not any(term in high_risk_record for term in ("rollback", "fallback", "回滚", "回退")):
+            errors.append("class C/D plans must document rollback or fallback readiness")
+        if not any(term in high_risk_record for term in ("independent", "review", "human", "人工", "审查", "复核")):
+            errors.append("class C/D plans must include independent or human verification evidence")
 
     return errors
 
@@ -95,4 +125,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

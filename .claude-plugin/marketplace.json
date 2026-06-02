@@ -4,7 +4,7 @@
     "name": "HaloForgeAI"
   },
   "description": "HaloForgeAI portable skills for AI-assisted engineering workflows.",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "plugins": [
     {
       "name": "adac-skills",
@@ -13,7 +13,7 @@
         "repo": "HaloForgeAI/adac-skills"
       },
       "description": "Acceptance-Driven Agentic Coding skills and validation tooling.",
-      "version": "0.1.1",
+      "version": "0.2.0",
       "category": "Productivity",
       "tags": ["agentic-coding", "acceptance", "engineering-process"]
     }

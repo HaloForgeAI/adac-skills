@@ -27,6 +27,8 @@ ADAC 由四个控制点组成：
 3. **Evals**：把真实风险转成可执行的验收检查，包括行为、回归、性能、生命周期和可观测性。
 4. **Gates**：架构、并发、安全、发布和残余风险判断由人来收口。
 
+对于用户可见或业务可见的改动，ADAC 还要求输出 **User Verification Scenarios**：给用户、Reviewer、QA 或产品负责人自行验证的实际行为场景，包含前置条件、操作步骤、期望可见结果和需要保留的证据。
+
 它不是简单的 TDD，也不是“提示词写得更详细”。ADAC 的目标是让 AI 产出不只停在“代码能编译”，而是能带着验收证据进入 review 和上线判断。
 
 ## 安装
@@ -37,7 +39,7 @@ ADAC 由四个控制点组成：
 npx skills add HaloForgeAI/adac-skills --skill adac
 ```
 
-安装后可以在支持 skills 的 Agent 中使用 `adac`，例如要求它在动手实现前先给出风险分级、上下文包、验收矩阵和人工关口。
+安装后可以在支持 skills 的 Agent 中使用 `adac`，例如要求它在动手实现前先给出风险分级、上下文包、验收矩阵、用户自验场景和人工关口。
 
 ## 使用方式
 
@@ -50,7 +52,7 @@ Use ADAC for this task. Before editing code, classify risk, build a context pack
 中文表达也可以：
 
 ```text
-用 ADAC 处理这个任务。先不要改代码，先做风险分级、上下文梳理、验收矩阵和人工关口设计。
+用 ADAC 处理这个任务。先不要改代码，先做风险分级、上下文梳理、验收矩阵、用户可自行验证的行为场景和人工关口设计。
 ```
 
 ## 验证 ADAC Plan

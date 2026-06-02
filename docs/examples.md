@@ -23,12 +23,15 @@ With ADAC, the agent should first produce:
   - `AC-03 lifecycle`: repeated enter/exit does not leak or double-release resources;
   - `AC-04 performance`: same-scene load timing is recorded before and after;
   - `AC-05 observability`: logs or telemetry expose queue depth, task latency, and completion failures;
+- user verification scenarios:
+  - `UV-01`: as a QA reviewer, enter the same avatar scene with a fixed account and verify visible resources complete while timing and logs are captured;
+  - `UV-02`: trigger cancel or missing-asset behavior and verify the visible flow does not hang while diagnostic logs identify the failed task;
 - gates: concurrency ownership review and release fallback review.
 
 Useful prompt:
 
 ```text
-Use ADAC for this async resource loading task. Before editing code, classify risk, build a context pack from the repo, and propose an acceptance matrix covering behavior, regression, lifecycle, performance, observability, and rollback.
+Use ADAC for this async resource loading task. Before editing code, classify risk, build a context pack from the repo, and propose an acceptance matrix plus user verification scenarios covering behavior, regression, lifecycle, performance, observability, and rollback.
 ```
 
 ## Example 2: Payment Flow Change
@@ -50,6 +53,9 @@ Expected ADAC shape:
   - discount cannot exceed allowed bounds;
   - retries do not double-apply discounts;
   - audit log records coupon decision and pricing result;
+- user verification scenarios:
+  - shopper applies a valid coupon, refreshes or retries once, and confirms the visible discount appears once while the final charged amount matches the server result;
+  - shopper applies an expired coupon and sees a safe, non-leaking error without changing the final charged amount;
 - gates: product rule approval, security review, rollout/rollback decision.
 
 Useful prompt:
@@ -77,6 +83,9 @@ Expected ADAC shape:
   - partial failures show item-level result;
   - undo/restore path is available if required;
   - analytics records count and failure reason without private data;
+- user verification scenarios:
+  - admin selects eligible and unauthorized rows, confirms archive, and verifies only authorized rows move state while item-level failures are shown;
+  - admin uses undo or restore, if required, and verifies restored rows return to the expected list state;
 - gates: product behavior review and permissions review.
 
 Useful prompt:
@@ -97,6 +106,7 @@ Expected ADAC review:
 
 - identify whether tests map to real risks or only internal coverage;
 - flag missing behavior/regression/performance/observability categories;
+- flag missing user verification scenarios for behavior a user or reviewer can actually observe;
 - require evidence artifacts for each acceptance item;
 - add gates where test interpretation needs human judgment;
 - reject tests that only mirror implementation details and would be rewritten with every refactor.
@@ -137,8 +147,8 @@ Use ADAC to design a reusable incident-response skill. Include the context pack,
 A useful ADAC adoption check is not "did the agent write more code?" Instead ask:
 
 - Did review start from acceptance items instead of a raw patch?
+- Could a user, reviewer, QA owner, or product owner run the listed behavior scenarios and know what evidence to capture?
 - Were non-goals and stable interfaces explicit before coding?
 - Did the final answer include evidence, skipped checks, and residual risk?
 - Did high-risk decisions stop at human gates?
 - Did any reusable context, tests, or scripts survive the task?
-

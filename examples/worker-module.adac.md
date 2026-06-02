@@ -53,15 +53,23 @@ Target repo/module: Engine IO and multi-thread task progression paths
 | AC-06 | observability | WorkerModule activity can be diagnosed through stats, telemetry, logs, profile, and dump entry points. | Inspect instrumentation and run a scenario. | WorkerStats/telemetry/log/profile artifacts. | agent |
 | AC-07 | rollout | New path can be switched or compared against the old path when diagnosing release issues. | Configuration or startup switch check. | Switch documentation and smoke check. | release owner gate |
 
-## 5. Agent Work Plan
+## 5. User Verification Scenarios
+
+| ID | Linked AC | Persona | Preconditions | Steps | Expected Result | Evidence | Owner/Gate |
+|---|---|---|---|---|---|---|---|
+| UV-01 | AC-01, AC-05 | QA reviewer acting as a player entering community | Fixed account, same scene, same machine tier, old-path baseline captured, WorkerModule path enabled. | Start from lobby; enter the target community; wait until avatar body, clothing, effects, actions, makeup, and related visible resources finish loading; record the waiting time. | The scene reaches a complete visible state without a long stalled wait, and measured enter time is lower than the baseline for the same scene and machine tier. | Screen recording, timing note, profile snapshot, and WorkerStats log. | agent prepares, human reviews |
+| UV-02 | AC-02, AC-07 | QA reviewer acting as a player leaving community | Same account and scene; fallback switch documented; old-path baseline captured. | Exit the community through the normal UI; observe the wait page; repeat once with fallback or old-path comparison enabled. | Exit wait is shorter than the baseline, the wait page clears, no stale visible resources remain, and fallback comparison remains available. | Screen recording, exit timing note, release log, and switch smoke-check result. | release owner gate |
+| UV-03 | AC-04, AC-06 | Engine reviewer checking failure diagnosis | Test build with logging enabled and a controlled missing-resource or cancelled-load scenario. | Trigger a missing resource, failed load, cancel, or callback failure path; inspect logs, dump entries, and telemetry after the scenario. | The user-visible flow does not deadlock or crash, and diagnosis artifacts identify the failed task or callback path. | Error-path log, dump absence or dump entry, telemetry event, and reviewer note. | human gate |
+
+## 6. Agent Work Plan
 
 1. Context reading: inspect old IO/task progression path, WorkerModule files, WorkerTaskRouter, comparison notes, and test entry points.
 2. Exploration: map blocking/waiting behavior to task progression, completion callback, resource lifecycle, and render/RHI boundaries.
 3. Implementation steps: implement in small patches tied to AC items; preserve caller behavior and fallback path.
-4. Verification steps: run functional scenarios, pressure cases, same-scene timing, instrumentation checks, and targeted review of concurrency/lifecycle boundaries.
+4. Verification steps: run functional scenarios, user verification scenarios, pressure cases, same-scene timing, instrumentation checks, and targeted review of concurrency/lifecycle boundaries.
 5. Documentation or assetization: preserve context notes, acceptance cases, instrumentation entry points, and release switch instructions.
 
-## 6. Human Gates
+## 7. Human Gates
 
 | Gate | Required? | Decision owner | Decision |
 |---|---|---|---|
@@ -70,24 +78,24 @@ Target repo/module: Engine IO and multi-thread task progression paths
 | Concurrency/data/resource risk | yes | engine reviewer | approved-with-risk |
 | Release/rollback | yes | release owner | approved-with-risk |
 
-## 7. Evidence Log
+## 8. Evidence Log
 
 | Time | Check | Result | Artifact |
 |---|---|---|---|
 | 2026-05-30 | same-scene enter/exit comparison record | pass | timing notes and demo videos |
+| 2026-05-30 | user verification scenarios UV-01 through UV-03 | pass | scenario recordings, logs, and reviewer notes |
 | 2026-05-30 | resource lifecycle pressure coverage review | pass | regression scenario list |
 | 2026-05-30 | observability entry review | pass | telemetry/log/dump entry list |
 | 2026-05-30 | release fallback gate | approved-with-risk | configuration switch note |
 
-## 8. Residual Risk
+## 9. Residual Risk
 
 - Remaining risk: complex concurrency and lifecycle behavior cannot be proven absent by tests alone.
 - Why acceptable or blocked: accepted only with human review, pressure coverage, logs/dump entry points, and fallback switch.
 - Follow-up owner: module owner.
 
-## 9. Reusable Assets
+## 10. Reusable Assets
 
 - Context to preserve: architecture notes, source path index, known risk list, and comparison facts.
-- Tests/checks to preserve: enter/exit scenarios, random outfit pressure, missing resource and callback failure cases, same-scene timing method.
+- Tests/checks to preserve: enter/exit user verification scenarios, random outfit pressure, missing resource and callback failure cases, same-scene timing method.
 - Scripts/tools/docs/skills to update: WorkerModule troubleshooting notes, telemetry field list, and ADAC acceptance template.
-

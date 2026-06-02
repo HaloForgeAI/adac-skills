@@ -3,7 +3,7 @@
   "$id": "https://github.com/HaloForgeAI/adac-skills/schemas/adac-plan.schema.json",
   "title": "ADAC Plan",
   "type": "object",
-  "required": ["status", "riskClass", "owner", "target", "context", "spec", "acceptance", "gates"],
+  "required": ["status", "riskClass", "owner", "target", "context", "spec", "acceptance", "userVerification", "gates"],
   "additionalProperties": false,
   "properties": {
     "status": {
@@ -68,6 +68,50 @@
           "owner": { "type": "string", "minLength": 1 }
         }
       }
+    },
+    "userVerification": {
+      "type": "object",
+      "required": ["scenarios"],
+      "additionalProperties": false,
+      "properties": {
+        "scenarios": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "linkedAcceptance", "persona", "preconditions", "steps", "expectedResult", "evidence", "owner"],
+            "additionalProperties": false,
+            "properties": {
+              "id": { "type": "string", "pattern": "^UV-[0-9]{2,}$" },
+              "linkedAcceptance": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "pattern": "^AC-[0-9]{2,}$" }
+              },
+              "persona": { "type": "string", "minLength": 1 },
+              "preconditions": { "type": "string", "minLength": 1 },
+              "steps": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "type": "string", "minLength": 1 }
+              },
+              "expectedResult": { "type": "string", "minLength": 1 },
+              "evidence": { "type": "string", "minLength": 1 },
+              "owner": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "notApplicableReason": { "type": "string", "minLength": 1 }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "scenarios": { "minItems": 1 }
+          }
+        },
+        {
+          "required": ["notApplicableReason"]
+        }
+      ]
     },
     "gates": {
       "type": "array",

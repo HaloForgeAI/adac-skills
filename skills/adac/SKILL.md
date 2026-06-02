@@ -23,10 +23,11 @@ ADAC is not ordinary TDD. Prefer behavior checks, regression checks, performance
 2. **Build Context Pack**: list verified facts, source paths, docs, tests, incidents, metrics, logs, assumptions, and known unknowns.
 3. **Define Spec Boundary**: write target behavior, non-goals, changed/stable interfaces, ownership boundaries, compatibility, and rollback/fallback.
 4. **Create Acceptance Matrix**: convert real risks into checkable AC items with method, evidence, and owner/gate.
-5. **Plan Agent Work**: decompose implementation into small steps; tie each step to acceptance items.
-6. **Execute and Verify**: implement, test, profile, inspect logs, collect evidence, and update the matrix when new risk appears.
-7. **Run Human Gates**: stop for human approval where judgment is required.
-8. **Assetize**: preserve reusable context, checks, scripts, runbooks, specs, or skill updates.
+5. **Write User Verification Scenarios**: for user-facing or business-visible behavior, list practical scenarios a user, reviewer, QA owner, or product owner can run, with steps and expected visible results.
+6. **Plan Agent Work**: decompose implementation into small steps; tie each step to acceptance items.
+7. **Execute and Verify**: implement, test, profile, inspect logs, collect evidence, and update the matrix when new risk appears.
+8. **Run Human Gates**: stop for human approval where judgment is required.
+9. **Assetize**: preserve reusable context, checks, scripts, runbooks, specs, or skill updates.
 
 ## Risk Scaling
 
@@ -48,6 +49,8 @@ Each acceptance item must include:
 - evidence artifact or result;
 - owner or gate.
 
+Behavior and regression items that a user can observe should link to a user verification scenario, for example `UV-01`.
+
 Include relevant categories:
 
 - behavior;
@@ -59,6 +62,21 @@ Include relevant categories:
 - security/privacy when applicable.
 
 Reject vague criteria such as "improve quality" or "make it faster" until they become checkable.
+
+## User Verification Scenario Rules
+
+When behavior is user-facing or business-visible, include a short scenario list for the user. Each scenario should include:
+
+- stable ID, for example `UV-01`;
+- linked AC item, for example `AC-01`;
+- persona or reviewer perspective;
+- preconditions, environment, fixture, or test data;
+- exact steps the user can perform;
+- expected visible result;
+- evidence to capture, such as screenshot, video, log, metric, or written observation;
+- owner or gate if interpretation needs human judgment.
+
+Use these scenarios to give the user practical validation information. Do not replace automated tests, performance evidence, observability checks, or required human gates with scenarios alone.
 
 ## Human Gate Rules
 
@@ -83,6 +101,7 @@ When the user asks to implement, first do a compact ADAC pass before editing:
 - risk class;
 - context sources read;
 - acceptance items;
+- user verification scenarios when applicable;
 - required gates;
 - implementation steps.
 
