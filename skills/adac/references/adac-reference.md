@@ -9,12 +9,13 @@ Use this checklist before and during AI-assisted implementation.
 3. What must not change?
 4. What acceptance evidence will prove the behavior is acceptable?
 5. What practical user verification scenario can the user or reviewer run?
-6. What historical regression must stay fixed?
-7. What pressure, performance, or lifecycle scenario matters?
-8. What logs, telemetry, profile, trace, or dump entry will diagnose failure?
-9. What rollback or fallback exists?
-10. Which decisions require human approval?
-11. What reusable asset should survive this task?
+6. What status and evidence link will each AC record?
+7. What historical regression must stay fixed?
+8. What pressure, performance, or lifecycle scenario matters?
+9. What logs, telemetry, profile, trace, or dump entry will diagnose failure?
+10. What rollback or fallback exists?
+11. Which decisions require human approval?
+12. What reusable asset should survive this task?
 
 ## Recommended Acceptance Categories
 
@@ -39,6 +40,7 @@ Prefer scenarios that a real user, QA owner, reviewer, or product owner can run 
 Prefer:
 
 - "accepted when AC-01 through AC-06 have evidence and G-02 is approved";
+- "AC-03 status is pass with evidence link artifact:pressure-log#resource-lifecycle";
 - "UV-01: as an admin reviewer, select three eligible rows, click Archive, confirm, and verify only those rows move to Archived with an audit entry";
 - "same scenario, same machine tier, same measurement method";
 - "agent prepares evidence; human owner approves the gate";

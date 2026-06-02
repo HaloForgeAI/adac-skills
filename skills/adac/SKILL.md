@@ -38,6 +38,13 @@ ADAC is not ordinary TDD. Prefer behavior checks, regression checks, performance
 
 If risk is unclear, classify upward.
 
+Validator expectations scale by class:
+
+- A: at least one AC item with status and evidence link.
+- B: A plus behavior, regression, observability coverage, and an evidence log.
+- C: B plus required human gate, rollback/fallback readiness, independent or human verification, and residual risk.
+- D: C plus separate owner or high-impact review and rollback/fallback drill.
+
 ## Acceptance Matrix Rules
 
 Each acceptance item must include:
@@ -47,6 +54,8 @@ Each acceptance item must include:
 - externally meaningful criterion or invariant;
 - verification method;
 - evidence artifact or result;
+- evidence link or artifact reference;
+- status: `pending`, `pass`, `fail`, `blocked`, `skipped`, or `not-applicable`;
 - owner or gate.
 
 Behavior and regression items that a user can observe should link to a user verification scenario, for example `UV-01`.
@@ -61,7 +70,7 @@ Include relevant categories:
 - rollout/fallback;
 - security/privacy when applicable.
 
-Reject vague criteria such as "improve quality" or "make it faster" until they become checkable.
+Reject vague criteria such as "improve quality", "optimize performance", or "make it faster" until they include a measurable threshold, explicit invariant, or reproducible scenario.
 
 ## User Verification Scenario Rules
 

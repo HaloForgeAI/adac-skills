@@ -63,6 +63,8 @@ Use ADAC for this task. Before editing code, classify risk, build a context pack
 python3 scripts/validate_adac_plan.py examples/worker-module.adac.md
 ```
 
+校验脚本会检查必填章节、AC 状态和证据链接、按 A/B/C/D 分级的必填项、用户自验场景，以及缺少阈值或可复现场景的模糊验收标准。
+
 如果从 npm 安装，也可以使用：
 
 ```bash

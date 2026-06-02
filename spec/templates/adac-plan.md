@@ -37,11 +37,11 @@ Target repo/module: <path or system>
 
 ## 4. Acceptance Matrix
 
-| ID | Risk | Criterion | Method | Evidence | Owner/Gate |
-|---|---|---|---|---|---|
-| AC-01 | behavior | <externally meaningful behavior> | <scenario or command> | <artifact/result> | <agent/human> |
-| AC-02 | regression | <invariant that must not regress> | <test/log/manual check> | <artifact/result> | <agent/human> |
-| AC-03 | observability | <diagnosis requirement> | <log/telemetry/dump check> | <artifact/result> | <agent/human> |
+| ID | Risk | Criterion | Method | Evidence | Evidence Link | Status | Owner/Gate |
+|---|---|---|---|---|---|---|---|
+| AC-01 | behavior | <externally meaningful behavior> | <scenario or command> | <artifact/result> | <path/link/log reference> | <pending/pass/fail/blocked/skipped/not-applicable> | <agent/human> |
+| AC-02 | regression | <invariant that must not regress> | <test/log/manual check> | <artifact/result> | <path/link/log reference> | <pending/pass/fail/blocked/skipped/not-applicable> | <agent/human> |
+| AC-03 | observability | <diagnosis requirement> | <log/telemetry/dump check> | <artifact/result> | <path/link/log reference> | <pending/pass/fail/blocked/skipped/not-applicable> | <agent/human> |
 
 ## 5. User Verification Scenarios
 

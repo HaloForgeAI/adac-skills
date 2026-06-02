@@ -81,6 +81,8 @@ npx skills add HaloForgeAI/adac-skills --skill adac
 python3 scripts/validate_adac_plan.py examples/worker-module.adac.md
 ```
 
+The validator checks required sections, AC status and evidence links, risk-class-specific requirements, user verification scenarios, and vague criteria that lack thresholds or reproducible scenarios.
+
 Or through the npm package entrypoint after publishing/installing:
 
 ```bash

@@ -1,6 +1,6 @@
 {
   "name": "adac-skills",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Acceptance-Driven Agentic Coding specification, templates, validation tooling, and portable agent skills.",
   "type": "commonjs",
   "bin": {
